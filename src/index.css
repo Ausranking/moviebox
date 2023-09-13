@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth dark:bg-slate-800 dark:text-white
+    }
+
+  
+}
+
+@layer components {
+  
+}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai'
 
 const MovieCard = (props) => {
   const date = new Date(props.release_date);
@@ -11,7 +12,9 @@ const MovieCard = (props) => {
             className="w-[15rem] h-[20rem] object-cover mt-5 ring-1 ring-primary-color rounded-md"
             src={`https://image.tmdb.org/t/p/w500${props.poster_path}`}
             
-          />
+            />
+            <AiOutlineHeart/>
+            <AiFillHeart className="text-primary-color"/>
         </div>
 
         <div className="">

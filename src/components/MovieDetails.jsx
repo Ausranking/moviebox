@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SideBar from "./SideBar";
-
+import { FaPlayCircle } from "react-icons/fa";
 const MovieDetails = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
@@ -14,65 +14,57 @@ const MovieDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setMovieDetails(data);
-      });
+      })
+      .catch();
   }, [id]);
-  // Function to extract the YouTube trailer key from the movie data
-  // const getTrailerKey = () => {
-  //   if (
-  //     movieDetails &&
-  //     movieDetails.videos &&
-  //     movieDetails.videos.results.length > 0
-  //   ) {
-  //     const trailer = movieDetails.videos.results.find(
-  //       (video) => video.site === "YouTube" && video.type === "Trailer"
-  //     );
-  //     if (trailer) {
-  //       return trailer.key;
-  //     }
-  //   }
-  //   return null;
-  // };
-
-  // // Construct the YouTube embed URL
-  // const trailerKey = getTrailerKey();
-  // const youtubeEmbedURL = trailerKey
-  //   ? `https://www.youtube.com/embed/${trailerKey}`
-  //   : null;
-
-  console.log(movieDetails);
-  // const date = new Date(movieDetails.release_date);
+  // const date = new Date(movieDetails.release_date).toUTCString;
   return (
-    <>
-      <div>
+    <div>
+      <aside className="max-md:hidden">
         <SideBar />
-        <section className="absolute left-[20%] max-md:left-[35%]">
-          {movieDetails ? (
-            <div>
-              <div className="relative">
-                <div className="w-[60rem] h-[28rem] ">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
-                    alt={`${movieDetails.title} backdrop`}
-                    className="rounded-xl object-cover w-full h-full"
-                  />
-                </div>
+      </aside>
 
-                <div className="absolute top-[50%] left-[40%] font-bold v ">
-                  Watch Trailer
-                </div>
+      <section className="grid place-items-center h-full md:absolute md:left-[15%] m-auto max-md:left-[35%]">
+        {movieDetails ? (
+          <div>
+            <section className="grid place-items-center">
+              <div className="w-[60rem] h-[28rem] max-md:w-[35rem] m-auto max-md:h-[15rem]max-sm:w-[10rem] ">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
+                  alt={`${movieDetails.title} backdrop`}
+                  className="rounded-xl object-cover w-full h-full"
+                />
+              </div>
+              <div
+                className="absolute top-[30%] max-sm:left-[36%]  flex flex-col
+                items-center left-[45%] font-bold w-26 hover:scale-110 "
+              >
+                <FaPlayCircle size={50} className=" " />
+                <span>Watch Trailer</span>
               </div>
 
-              <p data-testid="movie-title">{movieDetails.title}</p>
-              <p data-testid="movie-runtime">{movieDetails.release_date}</p>
-              <p data-tesid="movie-release-date">{movieDetails.runtime}</p>
-              <p data-testid="movie-overview">{movieDetails.overview}</p>
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </section>
-      </div>
-    </>
+              <section className="mt-5  p- ring ml-10 ">
+                <p data-testid="movie-title"> Title : {movieDetails.title}</p>
+                <p data-testid="movie-runtime">
+                  {" "}
+                  Release Date : {movieDetails.release_date}
+                </p>
+                <p data-tesid="movie-release-date">
+                  Duration : {movieDetails.runtime} minutes
+                </p>
+                <p data-testid="movie-overview">
+                  {" "}
+                  Overview : {movieDetails.overview}
+                </p>
+                <p> Language : {movieDetails.original_language}glish</p>
+              </section>
+            </section>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </section>
+    </div>
   );
 };
 

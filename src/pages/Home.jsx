@@ -2,16 +2,23 @@ import { heroimg } from "../assets/images";
 import { imdb, apple, play } from "../assets/icons";
 import Navbar from "../components/Navbar";
 import MovieCard from "../components/MovieCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [hasSearchResults, setHasSearchResults] = useState(true);
 
   // Callback function to receive the movies data from Navbar
   const handleMoviesFetched = (data) => {
-    setMovies(data.slice(0, 10));
+    setMovies(data.slice(5, 15));
+  };
+  const handleGoBack = () => {
+    navigate("/");
+    window.location.reload();
   };
 
   const handleSearch = (searchResults) => {
@@ -21,9 +28,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="relative">
-        <div className="h-[70vh] w-screen">
-          <img src={heroimg} alt="" className="h-full w-full object-cover" />
+      <div className="relative w-screen ">
+        <div className="max-sm:h-screen w-screen h-[90]">
+          <img src={heroimg} alt="" className=" h-full w-full object-cover" />
         </div>
 
         <nav className="absolute top-0">
@@ -33,8 +40,11 @@ const Home = () => {
           />
         </nav>
 
-        <div className="w-2/5 max-sm:w-11/12 max-sm:left-2  max-sm:center absolute top-0 md:top-[25%] lg:top-[20%] left-8 max-sm:top-[40%] text-white dark ">
-          <h1 className="text-6xl max-lg:text-4xl max-sm:text-3xl p-4">
+        <div
+          className=" absolute max-sm:w-11/12 w-1/2
+         max-sm:top-72 md:top-[30%] lg:top-24 xl:top-48 md:left-12 "
+        >
+          <h1 className="text-7xl max-lg:text-4xl max-sm:text-4xl p-4">
             John Wick 3 : Parabellum
           </h1>
           <div className="flex items-center ">
@@ -48,27 +58,42 @@ const Home = () => {
             </div>
           </div>
 
-          <p className="px-4 text-md max-lg:px-2 my-2">
+          <p className="px-4 text-lg max-lg:px-3 py-2 my-1">
             John Wick is on the run after killing a member of the international
             assassins' guild, and with a $14 million price tag on his head, he
             is the target of hit men and women everywhere.
           </p>
-          <button className="bg-primary-color px-3 py-1 flex rounded-lg items-center gap-1 m-3">
+          <button className="bg-primary-color px-3 py-2 flex rounded-lg items-center gap-1 m-3 hover:scale-105">
             <img src={play} alt="" />
             Watch Trailer
           </button>
         </div>
       </div>
-      <section className="ring-primary-color mt-5">
-        <div className="w-11/12 m-auto flex justify-between my-2">
-          <h2 className="text-2xl">Featured Movies</h2>
-          <p>See more ' </p>
-        </div>
-        {loading && <p>Loaging</p>}
+
+      <div className=" flex items-center justify-between w-11/12 m-auto my-5">
+        <h2 className="text-3xl underline underline-offset-8">
+          Featured Movies
+        </h2>
+        <p className="hover:underline hover:scale-105 underline-re">
+          See more
+        </p>
+      </div>
+
+      <section className="mt-5">
+        {loading && <p>Loaging...</p>}
         {movies.length === 0 ? (
-          <p className="text-center text-3xl text-primary-color">
-            No Movies Found
-          </p>
+          <div className="grid place-items-center">
+            <p className="text-center text-3xl text-primary-color">
+              No Movies Found
+            </p>
+
+            <button
+              onClick={handleGoBack}
+              className="mt-2 ring-white/50 ring-1 w-28 p-3 rounded-lg"
+            >
+              Go Back
+            </button>
+          </div>
         ) : (
           <div className=" grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5 w-11/12 m-auto  ">
             {movies.map((movie) => (

@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla&family=Poppins&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins&display=swap'); */
+
+
 
 @layer base {
     html {
-        @apply scroll-smooth dark:bg-slate-800 dark:text-white
+        @apply scroll-smooth dark:bg-slate-800 dark:text-white overflow-x-hidden
     }
 
-  
+    body {
+        @apply font-[Karla];
+    }
+
+
 }
 
-@layer components {
-  
-}

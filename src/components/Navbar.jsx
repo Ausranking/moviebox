@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import { Link, NavLink } from "react-router-dom";
 import { search } from "../assets/icons";
 import Movies from "../pages/Movies";
+import { logo } from "../assets/icons";
 
 const Navbar = ({ onMoviesFetched, onSearch }) => {
   const URL =
@@ -16,6 +17,7 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
   const [nav, setNav] = useState(false);
   const handleNav = () => setNav(!nav);
   const [loading, setLoading] = useState(false);
+  const [error, setError]= useState(null)
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -39,24 +41,30 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
 
   useEffect(() => {
     fetch(URL)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) { throw new console.error('Network Error') }
+        return res.json()
+      })
       .then((data) => {
         // setMovies(data.results);
         //pass the fetched movies data into the parent component
         onMoviesFetched(data.results);
-      });
+      })
+      .catch((error) => {
+      setError (error.message)
+    })
   }, []);
 
   return (
-    <nav className="flex items-center justify-between mt-4 w-screen px-10">
-      <div>
+    <nav className="flex items-center justify-between mt-4 w-screen px-10 ">
+      <div className="max-sm:hidden">
         <Logo />
       </div>
       <form onSubmit={handleSearch}>
         <div className="relative  max-sm:hidden ">
           <input
             placeholder="what do you want to watch"
-            className="w-[30rem] p-2 bg-transparent ring-primary-color ring-1"
+            className="w-[30rem] max-lg:w-[25rem] p-2 bg-transparent ring-white/50 ring-1 rounded-lg outline-primary-color"
             type="text"
             onChange={(e) => setTerm(e.target.value)}
             disabled={loading}
@@ -76,46 +84,43 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
         </div>
       </form>
 
-      <div className="max-sm:hidden">
+      <div className="max-sm:hidden ">
         <Link to="/dashboard">
-          <button>Sign in</button>
+          <button className="underline underline-offset-5 hover:scale-90">Sign in</button>
         </Link>
       </div>
 
-      {/* //hamburger/ */}
-      <div onClick={handleNav} className="sm:hidden">
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
-
       {/* mobile menu */}
+      <div className="sm:hidden flex items-center w-screen justify-between space-x-4">
+        <Link to="/">
+          <div>
+            <img src={logo} alt="mob-logo" width={40} />
+          </div>
+        </Link>
 
-      <div
-        onClick={handleNav}
-        className="sm:hidden absolute top-10 flex w-screen justify-between "
-      >
-        <div className="bg-slate-800 h-max z-10 ">
-          <form onSubmit={handleSearch}>
+        <form onSubmit={handleSearch}>
+          <div className="relative">
             <input
-              type="text"
-              className="bg-transparent ring-1 w-[15rem]"
               placeholder="what do you want to watch"
+              className="w-[20rem] p-2 bg-transparent ring-white ring-1 rounded-lg outline-none"
+              type="text"
               onChange={(e) => setTerm(e.target.value)}
+              disabled={loading}
             />
-            <button type="submit">
-              <img
-                src={search}
-                alt="searchbtn"
-                width={20}
-                className="absolute top-1 right-[35%]  "
-              />
+            <button type="submit" disabled={loading}>
+              {loading ? (
+                "Loading... please wait..."
+              ) : (
+                <img
+                  className="absolute right-1 top-3 "
+                  src={search}
+                  alt="searchbtn"
+                  width={20}
+                />
+              )}
             </button>
-          </form>
-        </div>
-        <div>
-          <Link to="/movie">
-            <button>Sign in</button>
-          </Link>
-        </div>
+          </div>
+        </form>
       </div>
     </nav>
   );

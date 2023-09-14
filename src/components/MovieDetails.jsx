@@ -17,7 +17,7 @@ const MovieDetails = () => {
       })
       .catch();
   }, [id]);
-  // const date = new Date(movieDetails.release_date).toUTCString;
+  // const date = movieDetails.release_date.toUTCString();
   return (
     <div>
       <aside className="max-md:hidden">
@@ -42,22 +42,27 @@ const MovieDetails = () => {
                 <FaPlayCircle size={50} className=" " />
                 <span>Watch Trailer</span>
               </div>
-
-              <section className="mt-5  p- ring ml-10 ">
-                <p data-testid="movie-title"> Title : {movieDetails.title}</p>
-                <p data-testid="movie-runtime">
-                  {" "}
-                  Release Date : {movieDetails.release_date}
-                </p>
-                <p data-tesid="movie-release-date">
-                  Duration : {movieDetails.runtime} minutes
-                </p>
-                <p data-testid="movie-overview">
-                  {" "}
-                  Overview : {movieDetails.overview}
-                </p>
-                <p> Language : {movieDetails.original_language}glish</p>
-              </section>
+              <div className="grid grid-cols-2 w-screen place-items-center">
+                <section className="mt-5 px-5  ml-10  m-auto  ">
+                  <p data-testid="movie-title" className="text-xl py-2">
+                    {" "}
+                    Title : {movieDetails.title}
+                  </p>
+                  <p data-testid="movie-runtime" className="text-lg">
+                    Release Date : {movieDetails.release_date}
+                  </p>
+                  <p data-tesid="movie-release-date" className="py-2">
+                    Duration : {movieDetails.runtime} minutes
+                  </p>
+                  <p data-testid="movie-overview" className=" text-xl">
+                    Overview : {movieDetails.overview}
+                  </p>
+                  <p> Language : {movieDetails.original_language}glish</p>
+                </section>
+                <section className="ring">
+                  <button>Add To favourite</button>
+                </section>
+              </div>
             </section>
           </div>
         ) : (

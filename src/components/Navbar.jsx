@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "./Logo";
-import { Link, NavLink } from "react-router-dom";
+import { Link,} from "react-router-dom";
 import { search } from "../assets/icons";
-import Movies from "../pages/Movies";
 import { logo } from "../assets/icons";
 
 const Navbar = ({ onMoviesFetched, onSearch }) => {
@@ -39,7 +37,6 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
       onSearch([]);
     }
   };
-  // setLoading(false)
 
   useEffect(() => {
     fetch(URL)
@@ -50,7 +47,6 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
         return res.json();
       })
       .then((data) => {
-        // setMovies(data.results);
         //pass the fetched movies data into the parent component
         onMoviesFetched(data.results);
       })

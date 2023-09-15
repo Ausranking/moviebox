@@ -7,8 +7,10 @@ import Movies from "../pages/Movies";
 import { logo } from "../assets/icons";
 
 const Navbar = ({ onMoviesFetched, onSearch }) => {
+
+  //top rated movies from the API
   const URL =
-    "https://api.themoviedb.org/3/discover/movie?api_key=510760336eb82bff9988bbeb9ff9022d";
+    "https://api.themoviedb.org/3/tv/top_rated?api_key=510760336eb82bff9988bbeb9ff9022d";
 
   const API_SEARCH =
     "https://api.themoviedb.org/3/search/movie?api_key=510760336eb82bff9988bbeb9ff9022d&query=";

@@ -14,7 +14,8 @@ const Home = () => {
 
   // Callback function to receive the movies data from Navbar
   const handleMoviesFetched = (data) => {
-    setMovies(data.slice(10, 20));
+    //top 10 ratd movies from the API
+    setMovies(data.slice(0, 10));
   };
   const handleGoBack = () => {
     navigate("/");
@@ -74,7 +75,9 @@ const Home = () => {
         <h2 className="text-3xl underline underline-offset-8">
           Featured Movies
         </h2>
-        <p className="hover:underline  hover:scale-105 underline-re">See more</p>
+        <p className="hover:underline  hover:scale-105 underline-re">
+          See more
+        </p>
       </div>
 
       <section className="mt-5">
@@ -96,7 +99,7 @@ const Home = () => {
           <div className=" grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 w-11/12 m-auto  ">
             {movies.map((movie) => (
               <div className="relative group overflow-hidden hover:scale-105 transition-transform">
-                <MovieCard {...movie} key={movie.id}  />
+                <MovieCard {...movie} key={movie.id} />
               </div>
             ))}
           </div>

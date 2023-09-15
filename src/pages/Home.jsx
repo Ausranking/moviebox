@@ -74,7 +74,7 @@ const Home = () => {
         <h2 className="text-3xl underline underline-offset-8">
           Featured Movies
         </h2>
-        <p className="hover:underline hover:scale-105 underline-re">See more</p>
+        <p className="hover:underline  hover:scale-105 underline-re">See more</p>
       </div>
 
       <section className="mt-5">

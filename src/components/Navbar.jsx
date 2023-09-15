@@ -64,7 +64,7 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
         <div className="relative  max-sm:hidden ">
           <input
             placeholder="what do you want to watch"
-            className="w-[30rem] max-lg:w-[25rem] p-2 bg-transparent ring-white/50 ring-1 rounded-lg outline-primary-color"
+            className="w-[30rem] max-lg:w-[25rem] text-white p-2 bg-transparent ring-white/50 ring-1 rounded-lg outline-primary-color"
             type="text"
             onChange={(e) => setTerm(e.target.value)}
             disabled={loading}
@@ -86,7 +86,9 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
 
       <div className="max-sm:hidden ">
         <Link to="/dashboard">
-          <button className="underline underline-offset-5 hover:scale-90">Sign in</button>
+          <button className="underline text-white underline-offset-5 hover:scale-90">
+            Sign in
+          </button>
         </Link>
       </div>
 
@@ -102,7 +104,7 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
           <div className="relative">
             <input
               placeholder="what do you want to watch"
-              className="w-[20rem] p-2 bg-transparent ring-white ring-1 rounded-lg outline-none"
+              className="w-[20rem] text-white p-2 bg-transparent ring-white ring-1 rounded-lg outline-none"
               type="text"
               onChange={(e) => setTerm(e.target.value)}
               disabled={loading}

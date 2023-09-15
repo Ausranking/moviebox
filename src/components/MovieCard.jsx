@@ -24,7 +24,7 @@ const MovieCard = (props) => {
             
             <AiFillHeart size={25} className="text-primary-color" />
           ) : (
-            <AiOutlineHeart size={25} />
+            <AiOutlineHeart size={25} className="text-white" />
           )}
         </div>
       </div>

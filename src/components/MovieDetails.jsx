@@ -25,11 +25,11 @@ const MovieDetails = () => {
         <SideBar />
       </aside>
 
-      <section className="grid place-items-center h-full md:absolute md:left-[15%] m-auto max-md:left-[35%]">
+      <section className="grid place-items-center h-full md:absolute md:left-[15%] m-auto max-md:left-[35%] lg:left-[15%]">
         {movieDetails ? (
           <div>
             <section className="grid place-items-center">
-              <div className="w-[60rem] h-[28rem] max-md:w-[35rem] m-auto max-md:h-[15rem]max-sm:w-[10rem] ">
+              <div className="w-[60rem] h-[28rem] max-md:w-[35rem] max-md:h-[15rem] max-sm:w-[30rem] lg:w-[85%] m-auto ">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
                   alt={`${movieDetails.title} backdrop`}
@@ -37,7 +37,7 @@ const MovieDetails = () => {
                 />
               </div>
               <div
-                className="absolute top-[30%] max-sm:left-[36%]  flex flex-col
+                className="absolute top-[30%] max-sm:top-[10%] max-sm:left-[45%]  flex flex-col
                 items-center left-[45%] font-bold w-26 hover:scale-110 "
               >
                 <FaPlayCircle size={50} className=" " />
@@ -45,7 +45,7 @@ const MovieDetails = () => {
               </div>
 
               {/* movie details required... */}
-              <div className="w-screen md:flex items-center">
+              <div className="w-screen md:flex items-center flex-wrap">
                 <section className="mt-5 px-5  ml-10  m-auto flex-1  ">
                   <p data-testid="movie-title" className="text-xl py-2">
                     Title : {movieDetails.title}
@@ -66,14 +66,14 @@ const MovieDetails = () => {
                   {/* some more movie details.. */}
                   <p> Language : {movieDetails.original_language}glish</p>
                 </section>
-                <section className="flex-1 mt-5">
-                  <button className="bg-primary-color w-[22rem] rounded-lg p-2 flex gap-2 items-center">
+                <section className="flex-1 mt-5 ml-10">
+                  <button className="bg-primary-color w-[22rem] rounded-lg p-2 flex gap-2 items-center justify-center hover:scale-105">
                     <img src={showtime} alt="" />
                     See Showtimes
                   </button>
 
-                  <button className="bg-transparent ring-1 ring-primary-color flex items-center gap-2 rounded-lg p-2 w-[22rem] my-2">
-                    <img src={list} alt="" />
+                  <button className="bg-transparent  ring-primary-color flex items-center gap-2  ring-1 rounded-lg p-2 w-[22rem] my-2 justify-center hover:scale-105  ">
+                    <img src={list} alt="icon" className="dark:bg-white" />
                     More Watch options
                   </button>
                 </section>

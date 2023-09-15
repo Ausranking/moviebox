@@ -1,14 +1,12 @@
-MovieBox App created by @King-austin (slack uername ), HNGx Frontend Track Intern
+HNG Task 2
 
+This repository contains code for HNG Task 2.
 This App consumes TMDB API to intereact with users
 
 CORE FEATURES
 
 - Displaying top 10 rated movie in the homepage
 - Allows user to search for a movie using the form
-
-HNG Task 2
-This repository contains code for HNG Task 2.
 
 How to Execute the Code
 To run this code, follow these simple steps:

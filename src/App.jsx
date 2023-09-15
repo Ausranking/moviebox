@@ -1,4 +1,3 @@
-import React from "react";
 import {
   createBrowserRouter,
   Link,
@@ -14,6 +13,7 @@ import Movies from "./pages/Movies";
 import Home from "./pages/Home";
 import RootLayout from "./layouts/RootLayout";
 import MovieDetails from "./components/MovieDetails";
+import Error from "./components/Error";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/movie" element={<Movies />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="movie/:id" element={<MovieDetails />} />
+      <Route path="*" element={<Error />} />
     </Route>
   )
 );

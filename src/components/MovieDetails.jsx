@@ -25,7 +25,7 @@ const MovieDetails = () => {
 
       .catch();
   }, [id]);
-  console.log(movieDetails)
+  console.log(movieDetails);
   return (
     <div>
       <aside className="max-md:hidden">
@@ -63,7 +63,7 @@ const MovieDetails = () => {
                   </p>
 
                   <p data-tesid="movie-runtime" className="py-2">
-                    {movieDetails.episode_run_time}
+                    {movieDetails.episode_run_time} minutes
                   </p>
 
                   <p data-testid="movie-overview" className=" text-xl">

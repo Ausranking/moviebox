@@ -17,7 +17,7 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
   const [nav, setNav] = useState(false);
   const handleNav = () => setNav(!nav);
   const [loading, setLoading] = useState(false);
-  const [error, setError]= useState(null)
+  const [error, setError] = useState(null);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -42,8 +42,10 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
   useEffect(() => {
     fetch(URL)
       .then((res) => {
-        if (!res.ok) { throw new console.error('Network Error') }
-        return res.json()
+        if (!res.ok) {
+          throw new console.error("Network Error");
+        }
+        return res.json();
       })
       .then((data) => {
         // setMovies(data.results);
@@ -51,8 +53,8 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
         onMoviesFetched(data.results);
       })
       .catch((error) => {
-      setError (error.message)
-    })
+        setError(error.message);
+      });
   }, []);
 
   return (

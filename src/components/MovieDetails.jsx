@@ -14,11 +14,18 @@ const MovieDetails = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setMovieDetails(data);
+
+        //targetting date and converting to UTC
+        const releaseDate = new Date(data.release_date);
+        const utcDate = releaseDate.toUTCString();
+        setMovieDetails({
+          ...data,
+          release_date: utcDate,
+        });
       })
+
       .catch();
   }, [id]);
-  // const date = movieDetails.release_date.toUTCString();
   return (
     <div>
       <aside className="max-md:hidden">

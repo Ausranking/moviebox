@@ -8,20 +8,18 @@ const MovieCard = (props) => {
     setLike(!like);
   };
 
-  const date = new Date(props.release_date);
   return (
-    <div data-testid="movie-card" className="">
+    <div data-testid="movie-card">
       <div className="relative">
         <Link to={`movie/${props.id}`}>
-        <img
-          data-testid="movie-poster"
-          className="w-[15rem] h-[20rem] object-cover mt-5 ring-1 ring-primary-color rounded-md"
-          src={`https://image.tmdb.org/t/p/w500${props.poster_path}`}
-        />
+          <img
+            data-testid="movie-poster"
+            className="w-[15rem] h-[20rem] object-cover mt-5 ring-1 ring-primary-color rounded-md"
+            src={`https://image.tmdb.org/t/p/w500${props.poster_path}`}
+          />
         </Link>
         <div onClick={handleLike} className="absolute top-5 right-5">
           {like ? (
-            
             <AiFillHeart size={25} className="text-primary-color" />
           ) : (
             <AiOutlineHeart size={25} className="text-white" />
@@ -35,7 +33,7 @@ const MovieCard = (props) => {
         </div>
         <p data-testid="movie-title">{props.title}</p>
         <p data-testid="movie-release-date" className="text-sm">
-          {date.toUTCString()}
+          {props.release_date}
         </p>
       </div>
     </div>

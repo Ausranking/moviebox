@@ -63,7 +63,7 @@ const MovieDetails = () => {
                   </p>
 
                   <p data-tesid="movie-runtime" className="py-2">
-                    {movieDetails.episode_run_time} minutes
+                    {movieDetails.episode_run_time}
                   </p>
 
                   <p data-testid="movie-overview" className=" text-xl">

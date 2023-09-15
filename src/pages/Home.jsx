@@ -98,7 +98,10 @@ const Home = () => {
         ) : (
           <div className=" grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 w-11/12 m-auto  ">
             {movies.map((movie) => (
-              <div className="relative group overflow-hidden hover:scale-105 transition-transform">
+              <div
+                key={movie.id}
+                className="relative group overflow-hidden hover:scale-105 transition-transform"
+              >
                 <MovieCard {...movie} key={movie.id} />
               </div>
             ))}

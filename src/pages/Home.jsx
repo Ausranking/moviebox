@@ -50,7 +50,7 @@ const Home = () => {
           <div className="flex items-center ">
             <div className="px-4 flex">
               <img src={imdb} alt="" />
-              <span className="text-sm ml-2">860 / 100</span>
+              <span className="text-sm ml-2">86.0 / 100</span>
             </div>
             <div className="flex items-center">
               <img src={apple} alt="" />

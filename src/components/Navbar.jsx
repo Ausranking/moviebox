@@ -8,7 +8,7 @@ import { logo } from "../assets/icons";
 
 const Navbar = ({ onMoviesFetched, onSearch }) => {
 
-  //top rated movies from the API
+  //top rated movies from the api
   const URL =
     "https://api.themoviedb.org/3/tv/top_rated?api_key=510760336eb82bff9988bbeb9ff9022d";
 

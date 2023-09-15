@@ -48,23 +48,23 @@ const MovieDetails = () => {
               <div className="w-screen md:flex items-center flex-wrap">
                 <section className="mt-5 px-5  ml-10  m-auto flex-1  ">
                   <p data-testid="movie-title" className="text-xl py-2">
-                    Title : {movieDetails.title}
+                    {movieDetails.title}
                   </p>
 
                   <p data-testid="movie-release-date" className="text-lg">
-                    Release Date : {movieDetails.release_date}
+                    {movieDetails.release_date}
                   </p>
 
                   <p data-tesid="movie-runtime" className="py-2">
-                    Duration : {movieDetails.runtime} minutes
+                    {movieDetails.runtime} minutes
                   </p>
 
                   <p data-testid="movie-overview" className=" text-xl">
-                    Overview : {movieDetails.overview}
+                    {movieDetails.overview}
                   </p>
 
                   {/* some more movie details.. */}
-                  <p> Language : {movieDetails.original_language}glish</p>
+                  <p>{movieDetails.original_language}glish</p>
                 </section>
                 <section className="flex-1 mt-5 ml-10">
                   <button className="bg-primary-color w-[22rem] rounded-lg p-2 flex gap-2 items-center justify-center hover:scale-105">

@@ -14,7 +14,6 @@ const MovieDetails = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-
         //targetting date and converting to UTC
         const releaseDate = new Date(data.release_date);
         const utcDate = releaseDate.toUTCString();
@@ -69,9 +68,6 @@ const MovieDetails = () => {
                   <p data-testid="movie-overview" className=" text-xl">
                     {movieDetails.overview}
                   </p>
-
-                  {/* some more movie details.. */}
-                  <p>{movieDetails.original_language}glish</p>
                 </section>
                 <section className="flex-1 mt-5 ml-10">
                   <button className="bg-primary-color w-[22rem] rounded-lg p-2 flex gap-2 items-center justify-center hover:scale-105">

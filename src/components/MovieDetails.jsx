@@ -10,12 +10,12 @@ const MovieDetails = () => {
   useEffect(() => {
     // Fetch movie details based on the ID
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=510760336eb82bff9988bbeb9ff9022d`
+      `https://api.themoviedb.org/3/tv/${id}?api_key=510760336eb82bff9988bbeb9ff9022d`
     )
       .then((res) => res.json())
       .then((data) => {
         //targetting date and converting to UTC
-        const releaseDate = new Date(data.release_date);
+        const releaseDate = new Date(data.first_air_date);
         const utcDate = releaseDate.toUTCString();
         setMovieDetails({
           ...data,
@@ -38,7 +38,7 @@ const MovieDetails = () => {
               <div className="w-[60rem] h-[28rem] max-md:w-[35rem] max-md:h-[15rem] max-sm:w-[30rem] lg:w-[85%] m-auto ">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
-                  alt={`${movieDetails.title} backdrop`}
+                  alt={`${movieDetails.name} backdrop`}
                   className="rounded-xl object-cover w-full h-full"
                 />
               </div>
@@ -54,7 +54,7 @@ const MovieDetails = () => {
               <div className="w-screen md:flex items-center flex-wrap">
                 <section className="mt-5 px-5  ml-10  m-auto flex-1  ">
                   <p data-testid="movie-title" className="text-xl py-2">
-                    {movieDetails.title}
+                    {movieDetails.name}
                   </p>
 
                   <p data-testid="movie-release-date" className="text-lg">

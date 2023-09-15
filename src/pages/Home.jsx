@@ -42,7 +42,7 @@ const Home = () => {
 
         <div
           className=" absolute max-sm:w-11/12 w-1/2
-         max-sm:top-72 md:top-[30%] lg:top-24 xl:top-48 md:left-12 "
+         max-sm:top-72 md:top-[30%] lg:top-24 xl:top-48 md:left-12 text-gray-300 "
         >
           <h1 className="text-7xl max-lg:text-4xl max-sm:text-4xl p-4">
             John Wick 3 : Parabellum
@@ -74,9 +74,7 @@ const Home = () => {
         <h2 className="text-3xl underline underline-offset-8">
           Featured Movies
         </h2>
-        <p className="hover:underline hover:scale-105 underline-re">
-          See more
-        </p>
+        <p className="hover:underline hover:scale-105 underline-re">See more</p>
       </div>
 
       <section className="mt-5">

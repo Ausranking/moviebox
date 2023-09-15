@@ -8,6 +8,8 @@ import calendar from "./Calendar.png";
 import projector from "./movie-projector.png";
 import logout from "./Logout.png";
 import imdb from "./imdb-icon.png";
+import list from "./list.png";
+import showtime from "./showtime.png";
 
 export {
   apple,
@@ -20,4 +22,6 @@ export {
   projector,
   logout,
   imdb,
+  list,
+  showtime,
 };

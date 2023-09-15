@@ -13,7 +13,7 @@ const Navbar = ({ onMoviesFetched, onSearch }) => {
     "https://api.themoviedb.org/3/tv/top_rated?api_key=510760336eb82bff9988bbeb9ff9022d";
 
   const API_SEARCH =
-    "https://api.themoviedb.org/3/search/movie?api_key=510760336eb82bff9988bbeb9ff9022d&query=";
+    "https://api.themoviedb.org/3/search/tv?api_key=510760336eb82bff9988bbeb9ff9022d&query=";
 
   const [term, setTerm] = useState("");
   const [nav, setNav] = useState(false);

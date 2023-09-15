@@ -14,7 +14,7 @@ const Home = () => {
 
   // Callback function to receive the movies data from Navbar
   const handleMoviesFetched = (data) => {
-    setMovies(data.slice(5, 15));
+    setMovies(data.slice(10, 20));
   };
   const handleGoBack = () => {
     navigate("/");

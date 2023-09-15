@@ -4,8 +4,16 @@ import { useState } from "react";
 
 const MovieCard = (props) => {
   const [like, setLike] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+
   const handleLike = () => {
     setLike(!like);
+
+    //show a message after likeing movie
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 2000); //displaying for 2 seconds
   };
 
   return (
@@ -36,6 +44,19 @@ const MovieCard = (props) => {
           {props.release_date}
         </p>
       </div>
+      {showMessage && (
+        <div className="absolute top-[50%] w-full flex items-center justify-center bg-gray-900 bg-opacity-80">
+          {like ? (
+            <p className="text-primary-color tracking-tighter">
+              Added to favourites
+            </p>
+          ) : (
+            <p className="text-primary-color tracking-tighter">
+              Removed from Favourites
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

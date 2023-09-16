@@ -20,13 +20,12 @@ const MovieDetails = () => {
         return res.json();
       })
       .then((data) => {
-        
         // Targeting date and converting to UTC
-        const releaseDate = new Date(data.first_air_date);
+        const releaseDate = new Date(data.release_date);
         const utcDate = releaseDate.toUTCString();
         setMovieDetails({
           ...data,
-          first_air_date: utcDate,
+          release_date: utcDate,
         });
       })
       .catch((err) => {
@@ -72,15 +71,15 @@ const MovieDetails = () => {
                   <div className="w-screen md:flex items-center flex-wrap">
                     <section className="mt-5 px-5  ml-10  m-auto flex-1  ">
                       <p data-testid="movie-title" className="text-xl py-2">
-                        {movieDetails.name}
+                        {movieDetails.title}
                       </p>
 
                       <p data-testid="movie-release-date" className="text-lg">
-                        {movieDetails.first_air_date}
+                        {movieDetails.release_date}
                       </p>
 
                       <p data-tesid="movie-runtime" className="py-2">
-                        {movieDetails.episode_run_time} minutes
+                        {movieDetails.runtime} minutes
                       </p>
 
                       <p data-testid="movie-overview" className=" text-xl">

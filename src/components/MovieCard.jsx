@@ -23,7 +23,7 @@ const MovieCard = (props) => {
     <div data-testid="movie-card">
       <div className="relative">
         {/* required homepage movie details.. */}
-        <Link to={`movie/${props.id}`}>
+        <Link to={`movies/${props.id}`}>
           <img
             data-testid="movie-poster"
             className="w-[15rem] h-[20rem] object-cover mt-5 ring-1 ring-primary-color rounded-md"
@@ -38,6 +38,7 @@ const MovieCard = (props) => {
           )}
         </div>
       </div>
+
       <div>
         <div className=" absolute top-10 left-5 text-sm tracking-tighter font-sans font-semi-bold w-max px-2 mt-1 rounded-lg bg-primary-color/50">
           Tv Series

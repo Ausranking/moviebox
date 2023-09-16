@@ -18,11 +18,11 @@ import Error from "./components/Error";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
+      <Route path="*" element={<Error />} />
       <Route index element={<Home />} />
       <Route path="/movie" element={<Movies />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="movie/:id" element={<MovieDetails />} />
-      <Route path="*" element={<Error />} />
     </Route>
   )
 );

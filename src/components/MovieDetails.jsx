@@ -13,20 +13,6 @@ const MovieDetails = () => {
     fetch(
       `https://api.themoviedb.org/3/tv/${id}?api_key=510760336eb82bff9988bbeb9ff9022d`
     )
-      //     .then((res) => res.json())
-      //     .then((data) => {
-      //       //targetting date and converting to UTC
-      //       const releaseDate = new Date(data.first_air_date);
-      //       const utcDate = releaseDate.toUTCString();
-      //       setMovieDetails({
-      //         ...data,
-      //         first_air_date: utcDate,
-      //       });
-      //     })
-
-      //     .catch();
-      // }, [id]);
-
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch movie details");

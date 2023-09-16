@@ -10,7 +10,8 @@ const Home = () => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [hasSearchResults, setHasSearchResults] = useState(true);
+
+  const [heroImages, setHeroImages] = useState([]);
 
   // Callback function to receive the movies data from Navbar
   const handleMoviesFetched = (data) => {
@@ -25,7 +26,6 @@ const Home = () => {
   const handleSearch = (searchResults) => {
     setMovies(searchResults);
   };
-  console.log(movies);
 
   return (
     <>

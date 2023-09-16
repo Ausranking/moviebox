@@ -1,11 +1,7 @@
 import { NavLink } from "react-router-dom";
 import DashBoardItem from "./DashBoardItem";
 import Logo from "../components/Logo";
-import {
-  apple,
-  logo,
-  play,
-  search,
+import { 
   home,
   tvshow,
   calendar,
@@ -26,7 +22,7 @@ const SideBar = ({ handleSidebar }) => {
             <DashBoardItem icon={home} text={"Home"} />
           </NavLink>
 
-          <NavLink to="/movie">
+          <NavLink to="/movies">
             <DashBoardItem icon={projector} text={"Movies"} />
           </NavLink>
 

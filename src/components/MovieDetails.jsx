@@ -54,8 +54,8 @@ const MovieDetails = () => {
                 <section className="grid place-items-center">
                   <div className="w-[60rem] h-[28rem] max-md:w-[35rem] max-md:h-[15rem] max-sm:w-[30rem] lg:w-[85%] m-auto ">
                     <img
-                      src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
-                      alt={`${movieDetails.title} backdrop`}
+                      src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+                      alt={`${movieDetails.title} poster`}
                       className="rounded-xl object-cover w-full h-full"
                     />
                   </div>
@@ -63,7 +63,7 @@ const MovieDetails = () => {
                     className="absolute top-[30%] max-sm:top-[10%] max-sm:left-[45%]  flex flex-col
                 items-center left-[45%] font-bold w-26 hover:scale-110 "
                   >
-                    <FaPlayCircle size={50} className=" " />
+                    <FaPlayCircle size={50} />
                     <span>Watch Trailer</span>
                   </div>
 

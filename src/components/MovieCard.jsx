@@ -81,4 +81,3 @@ const MovieCard = (props) => {
 };
 export default MovieCard;
 
-// https://api.themoviedb.org/3/search/movie?query=

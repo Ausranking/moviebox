@@ -11,7 +11,6 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [heroImages, setHeroImages] = useState([]);
 
   // Callback function to receive the movies data from Navbar
   const handleMoviesFetched = (data) => {

@@ -35,7 +35,7 @@ const MovieDetails = () => {
 
   // console.log(movieDetails);
   return (
-    <div>
+    <div className="relative">
       <aside className="max-md:hidden">
         <SideBar />
       </aside>
@@ -47,21 +47,21 @@ const MovieDetails = () => {
           </p>
         </div>
       ) : (
-        <div>
-          <section className="grid place-items-center h-full md:absolute md:left-[15%] m-auto max-md:left-[35%] lg:left-[15%]">
+        <div className="">
+          <section className=" ">
             {movieDetails ? (
               <div>
-                <section className="grid place-items-center">
-                  <div className="w-[60rem] h-[28rem] max-md:w-[35rem] max-md:h-[15rem] max-sm:w-[30rem] lg:w-[85%] m-auto ">
+                <section className="grid md:relative left-[18%] min-w-[80%]">
+                  <div className=" h-[40rem] lg:w-[70rem] lg:h-[28rem]">
                     <img
                       src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
                       alt={`${movieDetails.title} poster`}
-                      className="rounded-xl object-cover w-full h-full"
+                      className="rounded-xl object-cover w-full h-full block"
                     />
                   </div>
                   <div
-                    className="absolute top-[30%] max-sm:top-[10%] max-sm:left-[45%]  flex flex-col
-                items-center left-[45%] font-bold w-26 hover:scale-110 "
+                    className="absolute top-[25%] max-sm:top-[20%] max-sm:left-[42%]  flex flex-col
+                items-center left-[35%] font-bold w-26 hover:scale-110 "
                   >
                     <FaPlayCircle size={50} />
                     <span>Watch Trailer</span>
@@ -69,7 +69,7 @@ const MovieDetails = () => {
 
                   {/* movie details required... */}
                   <div className="w-screen md:flex items-center flex-wrap">
-                    <section className="mt-5 px-5  ml-10  m-auto flex-1  ">
+                    <section className="mt-5 p-2  m-auto flex-1  ">
                       <p data-testid="movie-title" className="text-xl py-2">
                         {movieDetails.title}
                       </p>

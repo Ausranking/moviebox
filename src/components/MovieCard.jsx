@@ -7,7 +7,7 @@ const MovieCard = (props) => {
   const [like, setLike] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
-  const year = new Date(props.first_air_date).getFullYear();
+  const year = new Date(props.release_date).getFullYear();
 
   const handleLike = () => {
     setLike(!like);
@@ -44,9 +44,9 @@ const MovieCard = (props) => {
           Tv Series
         </div>
         <p>
-          {props.origin_country} / {year}
+          Year Released : {year}
         </p>
-        <p data-testid="movie-title">{props.name}</p>
+        <p data-testid="movie-title" className="text-lg">{props.title}</p>
         <p data-testid="movie-release-date" className="text-sm">
           {props.first_air_date}
         </p>

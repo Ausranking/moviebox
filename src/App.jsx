@@ -9,7 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import Movies from "./pages/Movies";
+// import Movies from "./pages/Movies";
 import Home from "./pages/Home";
 import RootLayout from "./layouts/RootLayout";
 import MovieDetails from "./components/MovieDetails";
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route path="*" element={<Error />} />
       <Route index element={<Home />} />
-      <Route path="movies" element={<Movies />} />
+      {/* <Route path="movies" element={<Movies />} /> */}
       <Route path="dashboard" element={<Dashboard />} />
       <Route path="movies/:id" element={<MovieDetails />} />
     </Route>

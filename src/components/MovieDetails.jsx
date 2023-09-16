@@ -52,7 +52,7 @@ const MovieDetails = () => {
             {movieDetails ? (
               <div>
                 <section className="grid md:relative left-[18%] min-w-[80%]">
-                  <div className=" h-[40rem] lg:w-[70rem] lg:h-[28rem]">
+                  <div className=" h-[40rem] lg:w-[68rem] lg:h-[28rem]">
                     <img
                       src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
                       alt={`${movieDetails.title} poster`}

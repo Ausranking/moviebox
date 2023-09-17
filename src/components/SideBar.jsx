@@ -1,16 +1,10 @@
 import { NavLink } from "react-router-dom";
 import DashBoardItem from "./DashBoardItem";
 import Logo from "../components/Logo";
-import { 
-  home,
-  tvshow,
-  calendar,
-  projector,
-  logout,
-} from "../assets/icons";
+import { home, tvshow, calendar, projector, logout } from "../assets/icons";
 
 const SideBar = ({ handleSidebar }) => {
-  handleSidebar = {handleSidebar}
+  handleSidebar = { handleSidebar };
   return (
     <aside className="w-[14rem] h-screen grid pl-5 space-y-24 ring-1 z-10 ring-gray-200 rounded-tr-3xl rounded-br-3xl fixed">
       <div className="grid ">
@@ -22,7 +16,7 @@ const SideBar = ({ handleSidebar }) => {
             <DashBoardItem icon={home} text={"Home"} />
           </NavLink>
 
-          <NavLink to="/movies">
+          <NavLink to="/">
             <DashBoardItem icon={projector} text={"Movies"} />
           </NavLink>
 
@@ -36,7 +30,9 @@ const SideBar = ({ handleSidebar }) => {
             <p className="text-sm my-2 font-semibold text-center">
               50k people are playing now
             </p>
-            <button className="ring-1 ring-primary-color px-4 py-1 hover:scale-95  rounded-3xl">Start playing</button>
+            <button className="ring-1 ring-primary-color px-4 py-1 hover:scale-95  rounded-3xl">
+              Start playing
+            </button>
           </div>
           <DashBoardItem icon={logout} text={"Logout"} />
         </div>

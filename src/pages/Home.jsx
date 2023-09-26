@@ -11,8 +11,10 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
   // Callback function to receive the movies data from Navbar
   const handleMoviesFetched = (data) => {
+    //top 10 rated movies from the API
     setMovies(data);
   };
   const handleGoBack = () => {
